@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-dashboard</title>
+    <link rel="stylesheet" href="scss/style.css">
+    <link rel="shortcut icon" href="image/covid.ico">
+</head>
+
+<body>
+    <header id="dashboardHeader">
+        <img src="image/covid19.png" alt="covid logo" width="60" height="60">
+        <h3 id="headerTitle"></a>COVID-19 DASHBOARD</h3>
+    </header>
+    <main id="mainWrapper">
+        <div id="mainWrapperContainer">
+            <div id="leftColumnWrapper">
+                <div id="globalCases">
+                    <h3 id="globalCasesTitle"> Global Cases</h3>
+                    <span id="globalCasesCount"> some number</span>
+                </div>
+                <div id="countrysColumn" class="selectpicker" data-show-subtext="true" data-live-search="true">
+                    <input type="text" id="search" placeholder="Search for a Country">
+                    <div id="countrysTableWrapper">
+                        <table id="countrysTable">
+
+                        </table>
+                    </div>
+                    <div id="countrySwitch">
+                        <button id="leftcountrySwitch">
+                            <</button> <span id="countrySelector">Cases</span>
+                                <button id="rightcountrySwitch">></button>
+                    </div>
+                </div>
+            </div>
+            <div id="centerColumnWrapper">
+                <div id="mapWrapper">
+                    <div id="mapWrapperTogle">
+
+                    </div>
+
+                    <div id="mapSwitch">
+                        <button id="leftMapSwitch">
+                            <</button> <span id="mapSelector">Cases</span>
+                                <button id="rightMapSwitch">></button>
+                    </div>
+                </div>
+            </div>
+            <div id="rightColumnWrapper">
+                <div id="tableWrapper">
+                    <div id="casesTableWrapper">
+                        <table id="casesTable" class="table">
+                            <tbody>
+                                <td> Cases <div id="globalCasesTable"> 0 </div>
+                                </td>
+                                <td> Recovered <div id="globalRecoveredTable"> 0 </div>
+                                </td>
+                                <td> Death <div id="globalDeathTable"> 0 </div>
+                                </td>
+                            </tbody>
+                        </table>
+                        <div id="countryFlag">
+                            <img src="image/flagvoz.png" alt="" id="casesTableWrapperImg">
+                            <span id="casesTableWrapperName">World</span>
+                        </div>
+                    </div>
+                    <div id="tableSwitchCases">
+                        <div id="tableSwitchDayContain">
+                            <div id="tableSwitchInterval">Time Interval</div>
+                            <div id="tableSwitchDay">
+                                <button id="leftTableSwitch">
+                                    <</button> <span id="tableSelectorInterval">All the time</span>
+                                        <button id="rightTableSwitch">></button>
+                            </div>
+                        </div>
+                        <div id="tableSwitchContain">
+                            <div id="tableSwitchValuesInterval">Absolute or relative values</div>
+                            <div id="tableSwitchValues">
+                                <button id="leftTableSwitch">
+                                    <</button> <span id="tableSelectorValues">Total</span>
+                                        <button id="rightTableSwitch">></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="graphiсWrapper" style="height: 40vh; width: 60vh;">
+                    <canvas class="canvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="footer">
+        <a id="gitHubId1" href="https://github.com/Dmitry-Sokolovsky">Dmitry-Sokolovsky</a>
+        <a id="gitHubId2" href="https://github.com/nickermol">nickermol</a>
+        <a id="gitHubId3" href="https://github.com/dzmitrymukaseyeu">dzmitrymukaseyeu</a>
+        <span id="yearId">Copyright © 2020</span>
+        <a id="rsSchoolId" href="https://rs.school/js/"><img src="https://rs.school/images/rs_school_js.svg"
+                alt="RsSchool Logo" width="45" height="55"></a>
+    </div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="js/Chart.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script> -->
+
+</body>
+
+</html>
