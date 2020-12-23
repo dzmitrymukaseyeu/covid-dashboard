@@ -2,6 +2,8 @@ const searchInput = document.getElementById('search');
 const tboby = document.getElementById('countrysTable');
 const globalPopulation = 7827000000;
 
+Chart.defaults.global.elements.rectangle.backgroundColor = 1;
+
 let searchTerm = '';
 let countriesCovid;
 let countriesFlag;
@@ -114,11 +116,14 @@ searchInput.addEventListener('input', (e) => {
 });
 let thisCountry;
 
+const tableSelectorInterval = document.getElementById('tableSelectorInterval');
+const tableSelectorValues = document.getElementById('tableSelectorValues');
+
 const showDataByTable = async (event) => {
   let eventShow = event;
   await fetchCountriesCovid();
-  const tableSelectorInterval = document.getElementById('tableSelectorInterval');
-  const tableSelectorValues = document.getElementById('tableSelectorValues');
+  // const tableSelectorInterval = document.getElementById('tableSelectorInterval');
+  // const tableSelectorValues = document.getElementById('tableSelectorValues');
   if (eventShow === undefined) {
     eventShow = countriesCovid.Global;
     eventShow.population = 7827000000;
@@ -375,6 +380,8 @@ let chart = '';
 let counter = 0;
 
 const drawChart = async (country) => {
+    const tableSelectorInterval = document.getElementById('tableSelectorInterval');
+  const tableSelectorValues = document.getElementById('tableSelectorValues');
   const cases = [];
   const recovered = [];
   const deaths = [];
@@ -417,8 +424,12 @@ const drawChart = async (country) => {
       });
   }
 };
-const createGrafic = async (country, parameter) => {
+const createGrafic = async (country, parameter) => {  
   await drawChart(country, parameter);
+
+  if (tableSelectorInterval.innerHTML === 'All the time' && tableSelectorValues.innerHTML === 'Total') {
+    console.log()
+  } 
 
   function createGraphiсWrapper() {
     let canvasChart = document.querySelector('.canvas').getContext('2d');
@@ -450,6 +461,7 @@ const createGrafic = async (country, parameter) => {
           display: true,
           position: 'top',
           labels: {
+            defaultFontSize: 11,
             fontColor: '#fff',
           },
         },
@@ -458,10 +470,35 @@ const createGrafic = async (country, parameter) => {
             ticks: {
               beginAtZero: true,
               maxTicksLimit: 7,
+              callback: (value) => {
+                const ranges = [
+                  { divider: 1e6, suffix: 'M' },
+                  { divider: 1e3, suffix: 'k' },
+                ];
+                function formatNumber(n) {
+                  for (let i = 0; i < ranges.length; i += 1) {
+                    if (Math.abs(n) >= ranges[i].divider) {
+                      return (n / ranges[i].divider).toString() + ranges[i].suffix;
+                    }
+                  }
+                  return n;
+                }
+                return formatNumber(value);
+              }
             },
           }],
           xAxes: [{
-            display: false,
+            type: 'time',
+            time: {
+              unit: 'month',
+            },
+            ticks: {
+              beginAtZero: true,
+            },
+            gridLines: {
+              borderDash: [4, 3],
+              offsetGridLines: true,
+            },
           }],
 
         },
@@ -526,7 +563,7 @@ const createGrafic = async (country, parameter) => {
     }
     chart.canvas.parentNode.style.height = '40vh';
     chart.canvas.parentNode.style.width = '60vh';
-    chart.canvas.style.height = '100%';
+    // chart.canvas.style.height = '100%';
     chart.canvas.style.width = '100%';
     addUserToChart(chartConfig);
   }
