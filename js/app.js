@@ -522,7 +522,18 @@ const createGrafic = async (country, parameter) => {
           death.push(draw.deaths[i][0]);
         }
       } else {
+        for (let i = 0; i < draw.cases.length; i += 1) {
+          cs.push(draw.cases[i][0]);
+          сs.reduce(function (acc,item) {
 
+          });
+        }
+        for (let i = 0; i < draw.recovered.length; i += 1) {
+          recov.push(draw.recovered[i][0]);
+        }
+        for (let i = 0; i < draw.deaths.length; i += 1) {
+          death.push(draw.deaths[i][0]);
+        }
       }
 
 
