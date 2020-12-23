@@ -2,8 +2,6 @@ const searchInput = document.getElementById('search');
 const tboby = document.getElementById('countrysTable');
 const globalPopulation = 7827000000;
 
-Chart.defaults.global.elements.rectangle.backgroundColor = 1;
-
 let searchTerm = '';
 let countriesCovid;
 let countriesFlag;
@@ -505,19 +503,29 @@ const createGrafic = async (country, parameter) => {
       },
     };
 
+    let toogle = true;
+
     const addUserToChart = (config) => {
       const cs = [];
       const recov = [];
       const death = [];
-      for (let i = 0; i < draw.cases.length; i += 1) {
-        cs.push(draw.cases[i][0]);
+      console.log(draw);
+
+      if(toogle) {
+        for (let i = 0; i < draw.cases.length; i += 1) {
+          cs.push(draw.cases[i][0]);
+        }
+        for (let i = 0; i < draw.recovered.length; i += 1) {
+          recov.push(draw.recovered[i][0]);
+        }
+        for (let i = 0; i < draw.deaths.length; i += 1) {
+          death.push(draw.deaths[i][0]);
+        }
+      } else {
+
       }
-      for (let i = 0; i < draw.recovered.length; i += 1) {
-        recov.push(draw.recovered[i][0]);
-      }
-      for (let i = 0; i < draw.deaths.length; i += 1) {
-        death.push(draw.deaths[i][0]);
-      }
+
+
 
       const dataCases = {
         label: 'Cases',
@@ -563,7 +571,7 @@ const createGrafic = async (country, parameter) => {
     }
     chart.canvas.parentNode.style.height = '40vh';
     chart.canvas.parentNode.style.width = '60vh';
-    // chart.canvas.style.height = '100%';
+    chart.canvas.style.height = '100%';
     chart.canvas.style.width = '100%';
     addUserToChart(chartConfig);
   }
