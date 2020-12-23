@@ -199,6 +199,10 @@ body {
   #mapWrapper:hover .button__maximaze {
     display: flex;
   }
+
+  #mapWrapper:hover .button__maximaze {
+    display: flex;
+  }
   
   #tableWrapper{
     /* grid-area: table; */
@@ -239,7 +243,10 @@ body {
     /* height: 60%; */
     background-color: rgba(16, 7, 58, 0.575);
     position: relative;
+  }
 
+  #graphiсWrapper:hover .button__maximaze {
+    display: flex;
   }
 
   #graphiсWrapper:hover .button__maximaze {
@@ -390,7 +397,6 @@ h2 {
   text-decoration:none;
   color: rgb(116, 83, 245);
 }
-
 #footer a:hover{
   color:chartreuse;
 }
@@ -443,7 +449,6 @@ transition: all .2s ease-in-out;
   opacity: 1;
 }
 @keyframes glowing {
-
   0% { box-shadow: 0 0 -10px rgba(12, 182, 224, 0.842); }
   40% { box-shadow: 0 0 20px rgba(12, 182, 224, 0.842); }
   60% { box-shadow: 0 0 20px  rgba(12, 182, 224, 0.842); }
