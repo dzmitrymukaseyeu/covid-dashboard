@@ -402,12 +402,10 @@ h2 {
 .fullWidth {
   position: absolute!important;
   z-index: 999;
-  top: 70px;
+  top: 10vh;
   left: 2%;
   width: 96%!important;
-  height: 80%;
-  align-items: center;
-  justify-content: center;
+  height: 80vh!important;
 }
 .hide {
   display: none!important;
@@ -445,14 +443,15 @@ transition: all .2s ease-in-out;
   opacity: 1;
 }
 @keyframes glowing {
-  0% { box-shadow: 0 0 -10px rgba(12, 129, 224, 0.842); }
-  40% { box-shadow: 0 0 20px rgba(12, 129, 224, 0.842); }
-  60% { box-shadow: 0 0 20pxrgba(12, 129, 224, 0.842); }
-  100% { box-shadow: 0 0 -10px rgba(12, 129, 224, 0.842); }
+
+  0% { box-shadow: 0 0 -10px rgba(12, 182, 224, 0.842); }
+  40% { box-shadow: 0 0 20px rgba(12, 182, 224, 0.842); }
+  60% { box-shadow: 0 0 20px  rgba(12, 182, 224, 0.842); }
+  100% { box-shadow: 0 0 -10px  rgba(12, 182, 224, 0.842); }
 }
 
 .box-shadow:hover {
-  animation: glowing 5000ms infinite;
+  animation: glowing 3500ms infinite;
   transition: opacity 0.3s ease-in-out;
 }
 
@@ -505,11 +504,6 @@ transition: all .2s ease-in-out;
   #leftColumnWrapper {
     width: 100%;
     text-align: center;
-    /* padding: 0 10px; */
-  }
-  #centerColumnWrapper{
-    /* width: 90%; */
-    /* padding: 0 10px; */
   }
   #rightColumnWrapper{
     width: 100%;
